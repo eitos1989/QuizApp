@@ -8,19 +8,48 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script src="./script.js"></script>
-
+    <script src="./variables.js"></script>
     <title>QuizApp</title>
 </head>
 <body>
-    <h1>Hallo Welt!</h1>
-
-    <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-md">
+      <a class="navbar-brand" href="#">QuizApp</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card quiz-card">
+      <img src="img/optics-4691414_640.jpg" class="card-img-top" alt="quizImage">
+      <div class="card-body">
+        <h5 class="card-title">Frage</h5>
+        <div class="card mb-2">
+          <div class="card-body">
+            This is some text within a card body.
+          </div>
         </div>
+        <div class="card mb-2">
+          <div class="card-body">
+            This is some text within a card body.
+          </div>
+        </div>
+        <div class="card  mb-2">
+          <div class="card-body">
+            This is some text within a card body.
+          </div>
+        </div>
+        <div class="card mb-2">
+          <div class="card-body">
+            This is some text within a card body.
+          </div>
+        </div>
+        
+        <div class="question-footer">
+          <span><b> 1 </b> von <b> 5 </b> Fragen</span>
+          <button type="button" class="btn btn-primary">Nächste Frage</button>
+        </div>
+        
       </div>
-
-    <button class="btn btn-primary">Action!</button>
-
+    </div>
+  </div>
 </body>
 </html>
