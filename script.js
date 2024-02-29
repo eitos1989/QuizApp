@@ -30,10 +30,15 @@ function answer(answerID) {
 
 function nextQuestion() {
     curQuestion++;
-    resetAnswerButtons();
-    showQuestion();
-    document.getElementById('curQuestionCnt').innerHTML = curQuestion+1;
-    document.getElementById('next-button').disabled = true;
+    if(curQuestion < questions.length) {
+        resetAnswerButtons();
+        showQuestion();
+        document.getElementById('curQuestionCnt').innerHTML = curQuestion+1;
+        document.getElementById('next-button').disabled = true;
+    }else {
+        document.getElementById('next-button').innerHTML = "Quiz auswerten";
+    }
+
 }
 
 function resetAnswerButtons() {
