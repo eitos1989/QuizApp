@@ -20,8 +20,18 @@
   </nav>
   <div class="container">
     <div class="card quiz-card">
-      <img src="img/optics-4691414_640.jpg" class="card-img-top" alt="quizImage">
-      <div class="card-body">
+      <img id="headImg" src="img/optics-4691414_640.jpg" class="card-img-top" alt="quizImage">
+      
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 75%;"aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
+      <div class="card-body d-none" id="endScreen" >
+        <div class="text-center finalHeadLine">Quiz beendet !</div>
+        <div class="text-center">Du hast <span class="text-bold" id="correctAnswers"> xxx </span> Fragen von <span class="text-bold" id="possibleAnswer"> XXX </span> richtig beantwortet</div>
+      </div>
+
+      <div class="card-body" id="qestionBody">
         <h5 class="card-title" id="questionCur">Frage</h5>
         <div class="card quiz-answer-card mb-2">
           <div class="card-body" id="answer_1" onclick="answer('answer_1')">
