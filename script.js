@@ -1,8 +1,12 @@
 let curQuestion = 0;
 let correctAnswers = 0;
+let AUDIO_SUCCESS = new Audio("./sounds/sucess.mp3");
+let AUDIO_FAIL = new Audio("./sounds/wrong.mp3")
 
 function init() {
     document.getElementById('questionCnt').innerHTML = questions.length;
+    let percent = Math.round(( (curQuestion+1) / questions.length ) * 100);
+    document.getElementById('progressQuestionbar').style=`width: ${percent}%`;
     correctAnswers = 0;
     showQuestion();
 }
@@ -24,9 +28,11 @@ function answer(answerID) {
     if(question.right_answer == selectedQuestionNumber){
         document.getElementById(answerID).parentNode.classList.add("bg-success");
         correctAnswers++;
+        AUDIO_SUCCESS.play();
     }else{
         document.getElementById(answerID).parentNode.classList.add("bg-danger");
         document.getElementById(idofRightAnswer).parentNode.classList.add("bg-success");
+        AUDIO_FAIL.play();
     }
     document.getElementById('next-button').disabled = false;
 }
@@ -34,13 +40,20 @@ function answer(answerID) {
 function nextQuestion() {
     curQuestion++;
     if(curQuestion < questions.length) {
-        resetAnswerButtons();
-        showQuestion();
-        document.getElementById('curQuestionCnt').innerHTML = curQuestion+1;
-        document.getElementById('next-button').disabled = true;
+        updateToNextQuestion()
     }else {
         showEndScreen();
     }
+
+}
+
+function updateToNextQuestion() {
+    resetAnswerButtons();
+    showQuestion();
+    document.getElementById('curQuestionCnt').innerHTML = curQuestion+1;
+    document.getElementById('next-button').disabled = true;
+    let percent = Math.round(( (curQuestion+1) / questions.length ) * 100);
+    document.getElementById('progressQuestionbar').style=`width: ${percent}%`;
 
 }
 
@@ -57,4 +70,15 @@ function showEndScreen(){
     document.getElementById('correctAnswers').innerHTML = correctAnswers;
     document.getElementById('possibleAnswer').innerHTML = questions.length;
     document.getElementById('headImg').src = 'img/Win.jpg';
+}
+
+function restartGame() {
+    curQuestion = 0;
+    init();
+    resetAnswerButtons();
+    document.getElementById('curQuestionCnt').innerHTML = curQuestion+1;
+    document.getElementById('headImg').src = 'img/optics-4691414_640.jpg';
+    document.getElementById('qestionBody').classList.remove('d-none');
+    document.getElementById('endScreen').classList.add('d-none');
+
 }

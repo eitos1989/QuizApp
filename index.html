@@ -23,12 +23,15 @@
       <img id="headImg" src="img/optics-4691414_640.jpg" class="card-img-top" alt="quizImage">
       
       <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 75%;"aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" id="progressQuestionbar" role="progressbar" style="width: 0%;" ></div>
       </div>
 
       <div class="card-body d-none" id="endScreen" >
         <div class="text-center finalHeadLine">Quiz beendet !</div>
         <div class="text-center">Du hast <span class="text-bold" id="correctAnswers"> xxx </span> Fragen von <span class="text-bold" id="possibleAnswer"> XXX </span> richtig beantwortet</div>
+        <div class="button-row">
+          <button onclick="restartGame()" type="button" class="btn btn-primary" id="reset-button">Quiz Neustarten</button>
+        </div>  
       </div>
 
       <div class="card-body" id="qestionBody">
